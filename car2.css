@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    margin: 0;
+    padding: 20px;
+}
+
+.car-container {
+    background: linear-gradient(to right, rgb(0, 0, 0), rgb(95, 93, 93));;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.car-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.car-title {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+.car-description {
+    color: #fffdfd;
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.car-price {
+    font-size: 1.25em;
+    color: #eec1bf;
+    margin: 10px 0;
+}
+
+.add-to-cart {
+    background-color: #e60505;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #57000000;
+}
