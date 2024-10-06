@@ -1,34 +1,31 @@
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    // Prevent the default form submission
+    event.preventDefault();
 
-document.getElementById('signupPassword').addEventListener('input', function() {
-    const password = this.value;
-    const strengthIndicator = document.getElementById('signupPasswordStrength');
-    let strength = '';
-    const regexUpper = /[A-Z]/;
-    const regexLower = /[a-z]/;
-    const regexNumber = /[0-9]/;
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex
 
-    if (password.length >= 8 && regexUpper.test(password) && regexLower.test(password) && regexNumber.test(password)) {
-        strength = 'strong';
-        strengthIndicator.className = 'strong';
-    } else if (password.length >= 8 && (regexUpper.test(password) || regexLower.test(password) || regexNumber.test(password))) {
-        strength = 'medium';
-        strengthIndicator.className = 'medium';
-    } else {
-        strength = 'poor';
-        strengthIndicator.className = 'poor';
+    // Validate username (assuming it's an email)
+    if (!emailPattern.test(username)) {
+        alert('Please enter a valid email address.');
+        return;
     }
 
-    strengthIndicator.textContent = `Password strength: ${strength}`;
-});
-
-document.getElementById('signupForm').addEventListener('submit', function(event) {
-    const email = document.getElementById('email').value;
-    const username = document.getElementById('signupUsername').value;
-    const password = document.getElementById('signupPassword').value;
-
-    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-    if (!emailPattern.test(email) || !username || !password) {
-        event.preventDefault();
-        alert('Please fill in all fields correctly');
+    // Check if fields are empty
+    if (!username || !password) {
+        alert('Please fill in all fields.');
+        return;
     }
+
+    // Check password length
+    if (password.length < 6) {
+        alert('Password must be at least 6 characters long.');
+        return;
+    }
+
+    // If validation passes, proceed with form submission (this is where you'd send the data)
+    console.log('Form submitted:', { username, password });
+
+    
 });
